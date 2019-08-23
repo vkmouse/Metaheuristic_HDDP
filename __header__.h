@@ -6,12 +6,14 @@
 #include <vector>
 #include <time.h>
 #include <sstream>
+#include <cmath>
 
 using std::cout;
 using std::endl;
-using std::fstream;
+using std::ifstream;
 using std::ios;
 using std::string;
+using std::stringstream;
 using std::vector;
 
 #define macrocell 1
@@ -37,6 +39,7 @@ public:
     int per_evaluation_time = 1000;
     int now_evaluation_time = 0;
     int num_run = 1;
+    int now_run;
     string init_sol_path;
 
     v1d<int> best_sol;
@@ -45,11 +48,11 @@ public:
     double best_sol_interference;
     double best_sol_coverage;
 
-    v1d<double> cell_cost;
+    v1d<double> cell_cost{0, 175, 25, 5, 1, 0};
     double max_cost;
-    v1d<double> cell_range;
+    v1d<double> cell_range{0, 25, 10, 0.5, 0.05, 0};
     double max_range;
-    v1d<double> cell_power;
+    v1d<double> cell_power{0, 50, 10, 1, 0.25, 0};
     double max_interference;
 
     // Dataset Infomation
@@ -67,29 +70,35 @@ public:
 
     // method
     virtual void run() = 0;
-    void init(string dataset_path, int num_iter, int max_evaluation_time, int per_evaluation_time, int now_evaluation_time, int num_run, string init_sol_path);
+    void run_all();
+    void init(string dataset_path, int num_iter, int max_evaluation_time, int per_evaluation_time, int num_run, string init_sol_path);
     v1d<int> create_sol();
+    v1d<int> transition(v1d<int> sol);
     double evaluation(v1d<int> &sol);
+    bool determination(v1d<int> sol, double objectvalue);
 
 private:
     void read_dataset();
-    template <class T>
-    T takeout(vector<T> &vec, int num);
+    void read_init_sol();
+    bool isInt(string str);
+    bool is_covered(int cell, double *x1, double *y1, double *x2, double *y2);
+    v1d<string> split(string str, string pattern);
     double evaluation_cost(v1d<int> sol);
     double evaluation_coverage(v1d<int> &sol);
     double evaluation_interference(v1d<int> sol);
-    bool determination(v1d<int> sol, double objectvalue);
-    v1d<int> transition(v1d<int> sol);
-    bool is_covered(int cell, double *x1, double *y1, double *x2, double *y2);
-    v1d<string> split(string str, string pattern);
-    void read_init_sol(string path);
-    v1d<double> normalization(v1d<double> array);
+    // template <class T>
+    // T takeout(vector<T> &vec, int num);
+    // v1d<double> normalization(v1d<double> array);
 };
 class hc : public search_algorithm
 {
 public:
-    hc();
     virtual void run();
+
+private:
+    v1d<int> now_sol;
+    double now_objectvalue;
+    void init();
 };
 class sa : public search_algorithm
 {
