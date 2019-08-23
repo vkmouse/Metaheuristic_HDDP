@@ -4,7 +4,7 @@ create_init_sol.cpp is used to generate an initial solution for the algorithm.
 init_01.txt ~ init_09.txt are the initial solutions for DS1 ~ DS9, respectively.
 
 ### Compile
-g++ create_init_sol.cpp -o create_init_sol.exe -O3
+    g++ create_init_sol.cpp -o create_init_sol.exe -O3
 
 ### Usage
 Three parameters are required to execute the program.
@@ -16,4 +16,4 @@ Three parameters are required to execute the program.
 #### For example
 Generate "init_example.txt" with 5 runs and 100 candidate positions.
 
-create_init_sol.exe init_example.txt 5 100
+    create_init_sol.exe init_example.txt 5 100

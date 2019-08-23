@@ -15,7 +15,7 @@ DS8             |               |              | 300                           |
 DS9             |               |              | 300                           | 8,000
 
 ### Compile
-g++ CreateDataset.cpp -o CreateDataset.exe -O3
+    g++ CreateDataset.cpp -o CreateDataset.exe -O3
 
 ### Usage
 Six parameters are required to execute the program.
@@ -30,4 +30,4 @@ Six parameters are required to execute the program.
 #### For example
 Generate a dataset with filename "Dataset.txt", region length is 10, region width is 20, the number of candidate positions is 15, the number of users is 100, and without any existing macrocells.
 
-CreateDataset.exe Dataset.txt 10 20 15 100 0 
+    CreateDataset.exe Dataset.txt 10 20 15 100 0

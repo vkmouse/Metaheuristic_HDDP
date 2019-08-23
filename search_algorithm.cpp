@@ -1,6 +1,7 @@
 #include "__header__.h"
 void search_algorithm::run_all()
 {
+    srand(time(0));
     for (now_run = 0; now_run < num_run; now_run++)
     {
         now_evaluation_time = 0;
@@ -66,31 +67,14 @@ double search_algorithm::evaluation(v1d<int> &sol)
     now_evaluation_time++;
     if (now_evaluation_time % per_evaluation_time == 0 && now_evaluation_time != 0)
     {
-        cout << endl;
-        for (int i = 0; i < num_candicate_point; i++)
-            cout << best_sol[i];
         cout << now_evaluation_time << ",";
         cout << best_objectvalue << endl;
-        //		cout<<best_sol_coverage<<"\t";
-        //		cout<<best_sol_cost<<"\t";
-        //		cout<<best_sol_interference<<"\t";
-        //		cout<<best_sol_coverage/num_user<<"\t";
-        //		cout<<(max_cost-best_sol_cost)/max_cost<<"\t";
-        //		cout<<(max_interference-best_sol_interference)/max_interference<<endl;
     }
     else if (now_evaluation_time == 1)
     {
         cout << now_evaluation_time << ",";
         cout << objectvalue << endl;
-        //		cout<<coverage<<"\t";
-        //		cout<<cost<<"\t";
-        //		cout<<interference<<"\t";
-        //		cout<<coverage/num_user<<"\t";
-        //		cout<<(max_cost-cost)/max_cost<<"\t";
-        //		cout<<(max_interference-interference)/max_interference<<endl;
     }
-    //	cout<<now_evaluation_time<<",";
-    //	cout<<objectvalue<<endl;
 
     return objectvalue;
 }
