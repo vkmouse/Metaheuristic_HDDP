@@ -4,10 +4,10 @@ This code implements three metaheuristic algorithms, simulated annealing (SA), g
 - [Introduction](#Introduction)
 - [Compile](#Compile)
 - [Usage](#Usage)
- - [Hill climbing](#Hill-climbing)
- - [Simulated annealing](#Simulated-annealing)
- - [Genetic algorithm](#Genetic-algorithm)
- - [Search economics](#Search-economics)
+  - [Hill climbing](#Hill-climbing)
+  - [Simulated annealing](#Simulated-annealing)
+  - [Genetic algorithm](#Genetic-algorithm)
+  - [Search economics](#Search-economics)
 
 ### Introduction
 [Search economics (SE)](https://doi.org/10.1109/SMC.2015.447) is a novel metaheuristic algorithm proposed in 2015. The two main differences between SE and traditional metaheuristic are dividing the search space and investing computation resource depending on the potential of each subspace. The simulated results show that the SE-HDDP[[1]](https://doi.org/10.1016/j.procs.2018.10.161) [[2]](https://doi.org/10.1007/s12652-019-01353-8) is able to find a better solution than the HC, SA, and GA compared in this paper.
