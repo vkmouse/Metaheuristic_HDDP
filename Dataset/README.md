@@ -1,5 +1,11 @@
+### Outline
+- [Description](#Description)
+- [Compile](#Compile)
+- [Usage](#Usage)
+- [For example](#For-example)
+
 ### Description
-CreateDataset.cpp is used to generate datasets.
+**CreateDataset.cpp** is used to generate datasets.
 DS1 ~ DS9 are the datasets with different parameters.
 
 Dataset         | region length | region width | number of candidate positions | number of users
@@ -28,6 +34,6 @@ Six parameters are required to execute the program.
 6. Number of existing macrocells
 
 #### For example
-Generate a dataset with filename "Dataset.txt", region length is 10, region width is 20, the number of candidate positions is 15, the number of users is 100, and without any existing macrocells.
+Generate a dataset with filename **Dataset.txt**, region length is 10, region width is 20, the number of candidate positions is 15, the number of users is 100, and without any existing macrocells.
 
     CreateDataset.exe Dataset.txt 10 20 15 100 0
